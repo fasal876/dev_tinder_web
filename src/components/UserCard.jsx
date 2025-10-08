@@ -1,6 +1,6 @@
 import React from "react";
 
-const UserCard = ({ user }) => {
+const UserCard = ({ user, showButton }) => {
   const { firstName, lastName, about, photoURL, gender, age } = user;
 
   return (
@@ -15,14 +15,16 @@ const UserCard = ({ user }) => {
         <p className="text-lg my-2 ">{about}</p>
         {gender && <span>{gender}</span>}
         {age && <span className="mx-2">{age}</span>}
-        <div className="flex justify-end text-white py-5">
-          <button className="mx-2 bg-gray-500/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black">
-            Interested
-          </button>
-          <button className="mx-2 bg-black/80 py-3 px-3 rounded-lg hover:ring-1 hover:ring-offset-2 hover:ring-black">
-            Ignored
-          </button>
-        </div>
+        {showButton && (
+          <div className="flex justify-end text-white py-5">
+            <button className="mx-2 bg-gray-500/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black">
+              Interested
+            </button>
+            <button className="mx-2 bg-black/80 py-3 px-3 rounded-lg hover:ring-1 hover:ring-offset-2 hover:ring-black">
+              Ignored
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

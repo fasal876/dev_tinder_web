@@ -14,6 +14,13 @@
     to{opacity: 100%;}
   }
 }
+@theme {
+  --animate-transition-leave:transitionAnimate 300ms ease-in;
+  @keyframes transitionAnimate{
+    from {transform:translateY(0);}
+    to {transform:translateY(-20px);}
+  }
+}
 
 @theme {
   --animate-bounce-once:bounceOnce 0.6s ease-out;

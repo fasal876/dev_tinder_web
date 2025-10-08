@@ -35,8 +35,11 @@ const NavBar = () => {
           {showMenu && (
             <div className="absolute text-black z-1 bg-white shadow-sm shadow-gray-500 rounded-lg w-56 right-0 mt-1 animate-opacity ">
               <ul className="px-1 py-3">
-                {NAV_LINKS.map((link) => (
-                  <li className="py-2 w-full rounded-lg px-3 hover:bg-gray-200 text-sm">
+                {NAV_LINKS.map((link, i) => (
+                  <li
+                    key={i}
+                    className="py-2 w-full rounded-lg px-3 hover:bg-gray-200 text-sm"
+                  >
                     <Link to={link.to} className="w-full inline-block">
                       {link.name}
                     </Link>

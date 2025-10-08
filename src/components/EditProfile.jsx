@@ -132,7 +132,10 @@ const EditProfile = ({ user }) => {
           {update ? "updating" : "submit"}
         </button>
       </form>
-      <UserCard user={{ firstName, lastName, photoURL, about, age, gender }} />
+      <UserCard
+        user={{ firstName, lastName, photoURL, about, age, gender }}
+        showButton={false}
+      />
       {update && <Toast message={"updated"} />}
     </div>
   );

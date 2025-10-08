@@ -1,8 +1,16 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { updateStatus } from "../utility/updateStatus";
+import { useState } from "react";
 
-const UserCardSecondory = ({ user }) => {
+const UserCardSecondory = ({ user, showButton, _id }) => {
+  const dispatch = useDispatch();
+  const { leaving, setLeaving } = useState(false);
   return (
-    <div className="my-2 bg-white flex  outline-white  rounded-lg shadow-lg ring-1 ring-black/5 ">
+    <div
+      className={`my-2 bg-white flex  outline-white  rounded-lg shadow-lg ring-1 ring-black/5 ${
+        leaving ? "animate-transition-leave" : ""
+      }`}
+    >
       <div>
         <img
           src={user.photoURL}
@@ -19,6 +27,28 @@ const UserCardSecondory = ({ user }) => {
           {user.gender && <span className="">{user.gender}</span>}
         </div>
       </div>
+      {showButton && (
+        <div className="flex-1 flex items-center text-white ">
+          <button
+            className="mx-2 bg-black/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black"
+            onClick={() => {
+              updateStatus(_id, "accepted", dispatch);
+              setLeaving(true);
+            }}
+          >
+            Accept
+          </button>
+          <button
+            className="mx-2 bg-gray-500/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black"
+            onClick={() => {
+              updateStatus(_id, "rejected", dispatch);
+              setLeaving(true);
+            }}
+          >
+            Reject
+          </button>
+        </div>
+      )}
     </div>
   );
 };

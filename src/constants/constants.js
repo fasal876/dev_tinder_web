@@ -26,4 +26,3 @@ export const NAV_LINKS = [
   new NavLinks("Requests", "/requests"),
   new NavLinks("Explore", "/feed"),
 ];
-console.log(NAV_LINKS);
