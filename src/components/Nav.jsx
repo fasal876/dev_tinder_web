@@ -3,6 +3,7 @@ import logo from "../assets/Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router";
 import { handleLogout } from "../utility/handleLogout";
+import { NAV_LINKS } from "../constants/constants";
 
 const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -32,18 +33,15 @@ const NavBar = () => {
             />
           </button>
           {showMenu && (
-            <div className="absolute text-black z-1 bg-white shadow-sm shadow-gray-500 rounded-lg w-56 right-0 mt-1 animate-opacity cursor-pointer ">
+            <div className="absolute text-black z-1 bg-white shadow-sm shadow-gray-500 rounded-lg w-56 right-0 mt-1 animate-opacity ">
               <ul className="px-1 py-3">
-                <li className="py-2 w-full rounded-lg px-3 hover:bg-gray-200 text-sm ">
-                  <Link to="/profile" className="">
-                    Profile
-                  </Link>
-                </li>
-                <li className="py-2 w-full rounded-lg px-3 hover:bg-gray-200 text-sm ">
-                  <Link to="/feed" className="">
-                    Explore
-                  </Link>
-                </li>
+                {NAV_LINKS.map((link) => (
+                  <li className="py-2 w-full rounded-lg px-3 hover:bg-gray-200 text-sm">
+                    <Link to={link.to} className="w-full inline-block">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
                 <li
                   className="py-2 w-full rounded-lg px-3 hover:bg-gray-200 text-sm  "
                   onClick={() => {

@@ -1,6 +1,6 @@
 export const BASEURL = "http://localhost:3000";
 export const GENDER = [
-  { name: "", value: "" },
+  { name: "", value: null },
   {
     name: "Male",
     value: "male",
@@ -14,3 +14,16 @@ export const GENDER = [
     value: "other",
   },
 ];
+class NavLinks {
+  constructor(name, to) {
+    this.name = name;
+    this.to = to;
+  }
+}
+export const NAV_LINKS = [
+  new NavLinks("Profile", "/profile"),
+  new NavLinks("Connection", "/connection"),
+  new NavLinks("Requests", "/requests"),
+  new NavLinks("Explore", "/feed"),
+];
+console.log(NAV_LINKS);
