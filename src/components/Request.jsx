@@ -9,10 +9,12 @@ const Request = () => {
   );
 
   if (requests.length === 0) {
-    return <h1 className="text-center my-5">You don't have requests</h1>;
+    return (
+      <h1 className="not_present_heading py-2">You don't have requests</h1>
+    );
   }
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="w-full md:w-1/2 mx-auto ">
       <h1 className="text-3xl font-medium my-5 text-center">Requests</h1>
       {requests.map((req) => (
         <UserCardSecondory

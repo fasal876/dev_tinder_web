@@ -24,5 +24,5 @@ export const NAV_LINKS = [
   new NavLinks("Profile", "/profile"),
   new NavLinks("Connection", "/connection"),
   new NavLinks("Requests", "/requests"),
-  new NavLinks("Explore", "/feed"),
+  new NavLinks("Explore", "/"),
 ];

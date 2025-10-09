@@ -29,7 +29,7 @@ const NavBar = () => {
             <img
               src={user?.photoURL}
               alt="profile photo"
-              className="w-10 rounded-3xl"
+              className="w-12 rounded-3xl aspect-square"
             />
           </button>
           {showMenu && (

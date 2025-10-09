@@ -1,17 +1,19 @@
 import { BASEURL } from "../constants/constants";
-import { filterRequests } from "./requestSlice";
 
-export const updateStatus = async (_id, status, dispatch) => {
+export const updateStatus = async (URI, _id, status, dispatch, filter) => {
   try {
     const response = await fetch(
-      BASEURL + "/request/review/" + status + "/" + _id,
+      BASEURL + "/request" + URI + status + "/" + _id,
       {
         method: "POST",
         credentials: "include",
       }
     );
-    await response.json();
-    dispatch(filterRequests(_id));
+    const json = await response.json();
+    setTimeout(() => {
+      dispatch(filter(_id));
+    }, 500);
+    return json;
   } catch (err) {
     console.log(err);
   }

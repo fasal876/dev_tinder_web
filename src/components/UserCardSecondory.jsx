@@ -1,20 +1,34 @@
 import { useDispatch } from "react-redux";
 import { updateStatus } from "../utility/updateStatus";
+import { filterRequests } from "../utility/requestSlice";
 import { useState } from "react";
 
 const UserCardSecondory = ({ user, showButton, _id }) => {
   const dispatch = useDispatch();
-  const { leaving, setLeaving } = useState(false);
+  const [isRemoved, setIsRemoved] = useState(false);
+  const [translate, setTranslate] = useState("");
+
+  const handleClick = async (URI, status) => {
+    const result = await updateStatus(
+      URI,
+      _id,
+      status,
+      dispatch,
+      filterRequests
+    );
+    setIsRemoved(true);
+    setTranslate("-translate-y-[20%]");
+  };
   return (
     <div
-      className={`my-2 bg-white flex  outline-white  rounded-lg shadow-lg ring-1 ring-black/5 ${
-        leaving ? "animate-transition-leave" : ""
-      }`}
+      className={`my-2 bg-white flex  outline-white  rounded-lg shadow-lg ring-1  ring-black/5 transition-transform ease-in ${
+        isRemoved ? translate : ""
+      } `}
     >
-      <div>
+      <div className="flex-1">
         <img
           src={user.photoURL}
-          className="h-40 max-h-full border-1 border-black/5 rounded-ss-lg rounded-es-lg   rounded-se-[50%] rounded-ee-[40%]   overflow-hidden shadow-sm"
+          className="h-40 w-full max-h-full border-1 border-black/5 rounded-ss-lg rounded-es-lg   rounded-se-[50%] rounded-ee-[40%]   overflow-hidden shadow-sm"
         />
       </div>
       <div className="py-2 px-2 flex-2">
@@ -27,13 +41,12 @@ const UserCardSecondory = ({ user, showButton, _id }) => {
           {user.gender && <span className="">{user.gender}</span>}
         </div>
       </div>
-      {showButton && (
+      {showButton ? (
         <div className="flex-1 flex items-center text-white ">
           <button
             className="mx-2 bg-black/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black"
             onClick={() => {
-              updateStatus(_id, "accepted", dispatch);
-              setLeaving(true);
+              updateStatus(handleClick("/review/", "accepted"));
             }}
           >
             Accept
@@ -41,13 +54,14 @@ const UserCardSecondory = ({ user, showButton, _id }) => {
           <button
             className="mx-2 bg-gray-500/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black"
             onClick={() => {
-              updateStatus(_id, "rejected", dispatch);
-              setLeaving(true);
+              updateStatus(handleClick("/review/", "accepted"));
             }}
           >
             Reject
           </button>
         </div>
+      ) : (
+        <div className="flex-1"></div>
       )}
     </div>
   );

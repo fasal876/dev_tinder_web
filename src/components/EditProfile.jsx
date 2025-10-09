@@ -48,7 +48,7 @@ const EditProfile = ({ user }) => {
   return (
     <div className="w-8/12 h-full  mx-auto flex gap-3 my-5">
       <form
-        className="border-3 rounded-lg border-dashed py-8  px-3 flex-1 "
+        className="border-3 rounded-lg border-dashed py-8  px-3 flex-2 "
         onSubmit={(e) => {
           handleSubmit(e);
         }}
@@ -132,10 +132,12 @@ const EditProfile = ({ user }) => {
           {update ? "updating" : "submit"}
         </button>
       </form>
-      <UserCard
-        user={{ firstName, lastName, photoURL, about, age, gender }}
-        showButton={false}
-      />
+      <div className="flex-1">
+        <UserCard
+          user={{ firstName, lastName, photoURL, about, age, gender }}
+          showButton={false}
+        />
+      </div>
       {update && <Toast message={"updated"} />}
     </div>
   );
