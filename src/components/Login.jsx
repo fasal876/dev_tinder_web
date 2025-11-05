@@ -3,6 +3,7 @@ import { sumbitForm } from "../utility/submitForm";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utility/userSlice";
 import { useNavigate } from "react-router";
+import { BASEURL } from "../constants/constants";
 
 const Login = () => {
   const [emailId, setEmail] = useState("");
@@ -18,7 +19,7 @@ const Login = () => {
     const body = { emailId, password, firstName, lastName };
     try {
       const result = await sumbitForm(
-        "http://localhost:3000/" + path,
+        BASEURL + "/" + path,
         "POST",
         JSON.stringify(body)
       );
