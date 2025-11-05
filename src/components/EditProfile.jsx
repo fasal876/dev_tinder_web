@@ -46,7 +46,7 @@ const EditProfile = ({ user }) => {
     }
   };
   return (
-    <div className="w-8/12 h-full  mx-auto flex gap-3 my-5">
+    <div className="w-9/12 sm:w-8/12 h-full  mx-auto flex gap-3 my-10 sm:my-5 text-sm sm:text-base ">
       <form
         className="border-3 rounded-lg border-dashed py-8  px-3 flex-2 "
         onSubmit={(e) => {
@@ -122,7 +122,7 @@ const EditProfile = ({ user }) => {
         />
         <label htmlFor="about">About</label>
         <textarea
-          className="w-full border py-2 px-2 rounded-lg my-1 border-gray-400"
+          className="w-full h-25 border py-2 px-2 rounded-lg my-1 border-gray-400 resize-none"
           value={about}
           onChange={(e) => {
             setAbout(e.target.value);
@@ -132,7 +132,7 @@ const EditProfile = ({ user }) => {
           {update ? "updating" : "submit"}
         </button>
       </form>
-      <div className="flex-1">
+      <div className="hidden sm:block flex-1">
         <UserCard
           user={{ firstName, lastName, photoURL, about, age, gender }}
           showButton={false}

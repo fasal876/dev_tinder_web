@@ -6,15 +6,21 @@ const useAddToStore = (url, action, slice) => {
   const reducer = useSelector((store) => store[slice]);
   const fetchConnections = async () => {
     try {
+      console.log(BASEURL);
       const result = await fetch(BASEURL + url, {
         method: "GET",
         credentials: "include",
       });
-
+      if (!result.ok) {
+        const err = new Error("error");
+        err.status = result.status;
+        err.message = result.statusText;
+        throw err;
+      }
       const json = await result.json();
       dispatch(action(json.data));
     } catch (err) {
-      console.log(err);
+      console.log(err.status + "\n" + err.message);
     }
   };
   useEffect(() => {

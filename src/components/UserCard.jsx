@@ -34,7 +34,7 @@ w-full h-full bg-[#f8f8f8] rounded-md mx-auto  transition-transform ease-in outl
         {showButton && (
           <div className="flex justify-end text-white py-5">
             <button
-              className="mx-2 bg-gray-500/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black"
+              className="mx-2 bg-gray-500/80 py-3 px-3 rounded-lg button hover:ring-1 hover:ring-offset-2 hover:ring-black animate-opacity"
               onClick={() => {
                 //updateStatus("/send/", _id, "interested", dispatch, filterFeed);
                 handleClick(
@@ -48,7 +48,7 @@ w-full h-full bg-[#f8f8f8] rounded-md mx-auto  transition-transform ease-in outl
               Ignored
             </button>
             <button
-              className="mx-2 bg-black/80 py-3 px-3 rounded-lg hover:ring-1 hover:ring-offset-2 hover:ring-black "
+              className="mx-2 bg-black/80 py-3 px-3 rounded-lg hover:ring-1 hover:ring-offset-2 hover:ring-black animate-opacity"
               onClick={() => {
                 // updateStatus("/send/", _id, "ignored", dispatch, filterFeed);
                 handleClick(

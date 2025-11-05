@@ -15,7 +15,12 @@ const Connection = () => {
       <h1 className="text-center text-3xl py-3">Connections</h1>
       <div className="w-full md:w-1/2 mx-auto ">
         {connection.map((con) => (
-          <UserCardSecondory key={con._id} user={con} showButton={false} />
+          <UserCardSecondory
+            key={con._id}
+            _id={con._id}
+            user={con}
+            showButton={false}
+          />
         ))}
       </div>
     </div>

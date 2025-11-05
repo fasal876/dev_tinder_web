@@ -33,14 +33,14 @@ const Login = () => {
   };
 
   return (
-    <div className="flex w-1/2 mx-auto my-[5%] font-sans">
-      <div className="w-1/2 mx-5">
+    <div className=" w-full md:w-1/2  mx-auto   flex   my-[50%] md:my-[5%]  font-sans ">
+      <div className=" hidden sm:block md:block md:w-1/2 md:mx-5  ">
         <img src="./developers.png" alt="developers_img" />
         <h1 className="text-5xl tracking-widest font-medium py-2">DevTinder</h1>
         <p className="text-lg">Where Developers Connect!</p>
       </div>
       <form
-        className="w-6/12  rounded-lg shadow shadow-gray-500 px-10 py-10  "
+        className=" w-9/12 mx-auto sm:w-6/12 md:w-6/12  rounded-lg shadow shadow-gray-500 py-6 px-6 md:px-10 md:py-10  "
         onSubmit={(e) => {
           isLogin
             ? handleSubmit(e, "login", "/")
@@ -49,7 +49,7 @@ const Login = () => {
       >
         {!isLogin && (
           <>
-            <label className="block mt-3 mb-1" htmlFor="firstName">
+            <label className="block mt-0 md:mt-3 mb-1" htmlFor="firstName">
               First name:{" "}
             </label>
             <input
@@ -61,7 +61,7 @@ const Login = () => {
                 setFirstName(e.target.value);
               }}
             />
-            <label className="block mt-3 mb-1" htmlFor="lastName">
+            <label className="block mt-2 md:mt-3 mb-1" htmlFor="lastName">
               Last name:
             </label>
             <input
@@ -75,7 +75,7 @@ const Login = () => {
             />
           </>
         )}
-        <label className="block mt-3 mb-1" htmlFor="email">
+        <label className="block  mt-2 md:mt-3 mb-1" htmlFor="email">
           Email:{" "}
         </label>
         <input
@@ -87,7 +87,7 @@ const Login = () => {
             setEmail(e.target.value);
           }}
         />
-        <label className="block mt-5 mb-1" htmlFor="password">
+        <label className="block  mt-2 md:mt-3 mb-1" htmlFor="password">
           Passsword:
         </label>
         <input
@@ -102,12 +102,12 @@ const Login = () => {
         {err && <p className="text-red-700 my-2">{err}</p>}
         <button
           type="submit"
-          className="w-full bg-black text-white py-4 rounded-lg my-10 shadow-md shadow-gray-500 cursor-pointer"
+          className="w-full bg-black text-white py-4 rounded-lg my-4 md:my-10 shadow-md shadow-gray-500 cursor-pointer"
         >
           {isLogin ? "Sign In" : "Sign Up"}
         </button>
         {isLogin ? (
-          <p>
+          <p className="text-sm md:text-md">
             New user{" "}
             <span
               className="cursor-pointer underline"
@@ -117,7 +117,7 @@ const Login = () => {
             </span>
           </p>
         ) : (
-          <p>
+          <p className="text-sm md:text-md">
             Already have an account{" "}
             <span
               className="cursor-pointer underline"

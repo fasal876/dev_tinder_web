@@ -14,7 +14,7 @@ const Request = () => {
     );
   }
   return (
-    <div className="w-full md:w-1/2 mx-auto ">
+    <div className="w-[95%] sm:w-1/2 mx-auto ">
       <h1 className="text-3xl font-medium my-5 text-center">Requests</h1>
       {requests.map((req) => (
         <UserCardSecondory

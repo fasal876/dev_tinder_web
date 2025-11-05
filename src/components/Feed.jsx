@@ -10,7 +10,7 @@ const Feed = () => {
 
   return (
     feed.length !== 0 && (
-      <div className="w-3/12 mx-auto my-15 h-[32rem] relative transition-transform ">
+      <div className="w-9/12 sm:w-3/12 mx-auto my-20 sm:my-15 h-[32rem] relative transition-transform ">
         {feed.length >= 1 && (
           <div
             className="h-full   w-full absolute left-0 top-0 z-10  "
@@ -26,7 +26,7 @@ const Feed = () => {
             draggable={true}
             key={feed[1]._id}
           >
-            <UserCard user={feed[1]} showButton={true} />
+            <UserCard user={feed[1]} showButton={false} />
           </div>
         )}
       </div>
