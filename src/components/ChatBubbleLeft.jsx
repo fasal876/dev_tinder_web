@@ -7,7 +7,7 @@ const ChatBubbleLeft = ({ text, timeStamp, photoURL }) => {
         </div>
         <div className="ml-2">
           <time className="text-xs text-gray-500">
-            {timeStamp} <span>minutes ago</span>
+            {timeStamp} <span>hours ago</span>
           </time>
           <p className="bg-[#F2F2F2] py-3 px-3 break-words">{text}</p>
         </div>

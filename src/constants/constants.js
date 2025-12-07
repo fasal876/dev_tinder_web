@@ -1,4 +1,5 @@
-export const BASEURL = "/api";
+export const BASEURL =
+  window.location.hostname === "localhost" ? "http://localhost:3000" : "/api";
 export const GENDER = [
   { name: "", value: null },
   {

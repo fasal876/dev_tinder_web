@@ -17,13 +17,14 @@ const Chat = () => {
       const result = await fetch(BASEURL + "/chat/" + toUserId, {
         credentials: "include",
       });
+
       if (!result.ok) {
         const err = new Error();
         err.status = result.statusText;
         throw err;
       }
       const chats = await result.json();
-      console.log(chats);
+
       const data = chats.message.map((chat) => {
         const { senderId, text } = chat;
         return {
@@ -38,6 +39,10 @@ const Chat = () => {
       console.log(err.statusText);
     }
   };
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
   useEffect(() => {
     if (user) {
       const socket = createSocketConneciton();
@@ -68,10 +73,9 @@ const Chat = () => {
     setTextInput("");
   };
   const getTimeAgo = (timeStamp) => {
-    const now = new Date();
-    const recievedTime = new Date(timeStamp);
-    console.log(recievedTime);
-    return 1;
+    const recieved = new Date(timeStamp).getTime();
+    const now = new Date().getTime();
+    return Math.floor((now - recieved) / (1000 * 60 * 60 * 24));
   };
   return (
     <div className="bg-[#f2f2f2] h-screen my-0">

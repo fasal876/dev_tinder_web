@@ -9,7 +9,7 @@ const ChatBubbleRight = ({ text, timeStamp, photoURL }) => {
         </div>
         <div className="mr-2">
           <time className="text-xs text-gray-500">
-            {timeStamp} <span> ago</span>
+            {timeStamp} <span> hours ago</span>
           </time>
           <p className="bg-[#F2F2F2] py-3 px-3 break-words">{text}</p>
         </div>
