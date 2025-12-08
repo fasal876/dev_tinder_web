@@ -78,8 +78,8 @@ const Chat = () => {
     return Math.floor((now - recieved) / (1000 * 60 * 60 * 24));
   };
   return (
-    <div className="bg-[#f2f2f2] h-screen my-0">
-      <div className="w-1/2   bg-white rounded-lg shadow-xl  h-[80vh] mx-auto my-5  relative px-5 flex flex-col">
+    <div className="bg-[#f2f2f2]  my-0">
+      <div className="w-10/12 h-[85vh] sm:w-1/2   bg-white rounded-lg shadow-xl sm:h-[80vh] mx-auto my-5  relative px-5 flex flex-col">
         <h1 className="  text-center text-4xl border-b-2 py-3 border-b-gray-300">
           Chat
         </h1>
