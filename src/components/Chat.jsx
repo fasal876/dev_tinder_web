@@ -109,7 +109,7 @@ const Chat = () => {
         </div>
         <div className=" z-10 bg-white focus-within:border-black bottom-1 py-2 my-1 border border-gray-300 rounded-lg flex mb-2 px-5">
           <input
-            className="flex-1 outline-none resize-none "
+            className="flex-1 min-w-0  outline-none resize-none "
             value={textInput}
             onChange={(e) => {
               setTextInput(e.target.value);
@@ -120,7 +120,7 @@ const Chat = () => {
           />
 
           <button
-            className="text-black py-2 px-3  rounded-4xl  shadow-gray-300 shadow-sm"
+            className="text-black shrink-0 py-2 px-3  rounded-4xl  shadow-gray-300 shadow-sm"
             onClick={sendMessage}
           >
             <SendIcon />
